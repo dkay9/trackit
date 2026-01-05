@@ -14,3 +14,11 @@ The aim of this web app is to make it easy for developers or users in general to
   <li>Vercel/Netlify(deployment)</li>
 </ul>
 
+<h2>Key Features</h2>
+<ul>
+  <li>Dashboard: Applications by status, response rates, timeline view</li>
+  <li>Application Form: Company, position, salary range, notes, documents</li>
+  <li>Status Pipeline: Drag-and-drop board (Applied → Interview → Offer → Rejected)</li>
+  <li>Analytics: Success rate, average response time, salary insights</li>
+  <li>Filters: By status, date range, company, position type</li>
+</ul>
