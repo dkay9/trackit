@@ -1,10 +1,10 @@
 ## Trackit
 
 
-# overview
+<h2>Project Overview</h2>
 The aim of this web app is to make it easy for developers or users in general to track their job applications as its been a challenge for myself.
 
-<h1>Technical Architecture</h1>
+<h2>Technical Architecture</h1>
 <ul>
   <li>Next.js + Typescript</li>
   <li>Zustand/Redux(State management)</li>
@@ -13,3 +13,4 @@ The aim of this web app is to make it easy for developers or users in general to
   <li>Tailwind css(Responsiveness)</li>
   <li>Vercel/Netlify(deployment)</li>
 </ul>
+
