@@ -20,7 +20,7 @@ export default function Navbar() {
     }
     return true; // Default to dark mode for SSR
   });
-
+ 
   // Handle scroll for navbar background
   useEffect(() => {
     const handleScroll = () => {
