@@ -110,10 +110,7 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Social proof */}
-          
+          </div>          
         </div>
       </div>
     </section>

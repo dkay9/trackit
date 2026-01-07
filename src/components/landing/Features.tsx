@@ -1,4 +1,3 @@
-// src/components/landing/Features.tsx
 'use client';
 
 import { BarChart3, Bell, FileText, Filter, LineChart, Lock } from 'lucide-react';

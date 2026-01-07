@@ -1,5 +1,4 @@
-// src/components/landing/HowItWorks.tsx
-'use client';
+'use client'
 
 import { UserPlus, Plus, BarChart3, ArrowRight } from 'lucide-react';
 
