@@ -25,9 +25,13 @@
 
   /* Animated dot pattern background */
   .dot-pattern {
-    background-image: radial-gradient(circle, rgba(79, 123, 255, 0.15) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(79, 123, 255, 0.25) 1px, transparent 1px);
     background-size: 30px 30px;
     animation: moveDots 20s linear infinite;
+  }
+
+  .dark .dot-pattern {
+    background-image: radial-gradient(circle, rgba(79, 123, 255, 0.3) 1px, transparent 1px);
   }
 
   @keyframes moveDots {
