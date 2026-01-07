@@ -117,12 +117,9 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex flex-col md:flex-row items-center justify-center">
             <p className="text-gray-400 text-sm">
               © {currentYear} Trackit. All rights reserved.
-            </p>
-            <p className="text-gray-400 text-sm">
-              Built with using Next.js & TypeScript
             </p>
           </div>
         </div>

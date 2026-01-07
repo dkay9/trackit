@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Play, Sparkles } from 'lucide-react';
+import { ArrowRight, Play } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -19,13 +19,6 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="max-w-5xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8 animate-pulse">
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm text-gray-300">
-              Track your job search journey
-            </span>
-          </div>
 
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
@@ -47,7 +40,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
             <Link
               href="/signup"
-              className="group px-8 py-4 bg-primary hover:bg-primary-dark text-white font-semibold rounded-lg transition-all flex items-center gap-2 shadow-lg shadow-primary/50 hover:shadow-primary/70 hover:scale-105 w-full sm:w-auto justify-center"
+              className="group px-8 py-4 bg-primary hover:bg-primary-dark text-white font-semibold rounded-lg transition-all flex items-center gap-2 hover:scale-105 w-full sm:w-auto justify-center"
             >
               Get Started Free
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
