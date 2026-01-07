@@ -1,3 +1,4 @@
+// src/components/landing/Features.tsx
 'use client';
 
 import { BarChart3, Bell, FileText, Filter, LineChart, Lock } from 'lucide-react';
@@ -45,7 +46,7 @@ export default function Features() {
   return (
     <section id="features" className="relative py-20 sm:py-32 overflow-hidden">
       {/* Background elements */}
-      <div className="absolute inset-0 dot-pattern opacity-20"></div>
+      <div className="absolute inset-0 dot-pattern opacity-60"></div>
       
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -54,15 +55,15 @@ export default function Features() {
             <span className="text-sm text-primary font-medium">Features</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-gray-900 dark:from-white to-gray-600 dark:to-gray-400 bg-clip-text text-transparent">
               Everything You Need to
             </span>
             <br />
-            <span className="text-white">
+            <span className="text-gray-900 dark:text-white">
               Ace Your Job Search
             </span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Powerful features designed to make your job application process smooth and successful.
           </p>
         </div>
@@ -74,7 +75,7 @@ export default function Features() {
             return (
               <div
                 key={index}
-                className="group relative glass-dark rounded-2xl p-6 sm:p-8 hover:bg-white/10 transition-all duration-300 hover:scale-105"
+                className="group relative glass-dark dark:glass-dark bg-white border border-gray-200 dark:border-white/20 rounded-2xl p-6 sm:p-8 hover:bg-gray-50 dark:hover:bg-white/10 transition-all duration-300 hover:scale-105"
               >
                 {/* Glow effect on hover */}
                 <div className={`absolute inset-0 bg-gradient-to-r ${feature.color} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300 blur-xl`}></div>
@@ -86,12 +87,12 @@ export default function Features() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-semibold text-white mb-3">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                     {feature.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-gray-400 leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                     {feature.description}
                   </p>
                 </div>

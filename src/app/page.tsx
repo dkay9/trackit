@@ -1,17 +1,16 @@
+// src/app/page.tsx
 import Hero from '@/components/landing/Hero';
 import Features from '@/components/landing/Features';
 import HowItWorks from '@/components/landing/HowItWorks';
-// import CTA from '@/components/landing/CTA';
-import Footer from '@/components/landing/Footer'; 
+import Footer from '@/components/landing/Footer';
 
-export default function LandingPage() {
+export default function Home() {
   return (
-    <main>
+    <div className="bg-white dark:bg-dark-bg">
       <Hero />
       <Features />
       <HowItWorks />
-      {/* <CTA /> */}
       <Footer />
-    </main>
+    </div>
   );
 }

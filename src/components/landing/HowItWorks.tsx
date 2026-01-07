@@ -1,3 +1,4 @@
+// src/components/landing/HowItWorks.tsx
 'use client';
 
 import { UserPlus, Plus, BarChart3, ArrowRight } from 'lucide-react';
@@ -26,8 +27,8 @@ const steps = [
 export default function HowItWorks() {
   return (
     <section id="how-it-works" className="relative py-20 sm:py-32 overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent"></div>
+      {/* Animated dot pattern background */}
+      <div className="absolute inset-0 dot-pattern opacity-60"></div>
       
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -36,7 +37,7 @@ export default function HowItWorks() {
             <span className="text-sm text-primary font-medium">How It Works</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-white">
+            <span className="text-gray-900 dark:text-white">
               Get Started in
             </span>
             <br />
@@ -44,7 +45,7 @@ export default function HowItWorks() {
               Three Simple Steps
             </span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             From signup to insights in minutes. No complicated setup required.
           </p>
         </div>
@@ -59,7 +60,7 @@ export default function HowItWorks() {
               const Icon = step.icon;
               return (
                 <div key={index} className="relative">
-                  <div className="glass-dark rounded-2xl p-8 text-center hover:bg-white/10 transition-all duration-300 group">
+                  <div className="glass-dark dark:glass-dark bg-white border border-gray-200 dark:border-white/20 rounded-2xl p-8 text-center hover:bg-gray-50 dark:hover:bg-white/10 transition-all duration-300 group">
                     {/* Number badge */}
                     <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-primary/50">
                       {step.number}
@@ -71,12 +72,12 @@ export default function HowItWorks() {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-xl font-semibold text-white mb-3">
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                       {step.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-gray-400 leading-relaxed">
+                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                       {step.description}
                     </p>
                   </div>
