@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -13,51 +12,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary-dark rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">J</span>
-              </div>
-              <span className="text-xl font-bold text-white">JobTracker</span>
+              <span className="text-xl font-bold text-white">Trackit.</span>
             </div>
             <p className="text-gray-400 max-w-md mb-4">
               The easiest way to track and manage your job applications. Stay organized and land your dream job.
             </p>
-            {/* Social Links */}
-            <div className="flex items-center gap-3">
-              <a
-                href="https://github.com/yourusername"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 glass rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors"
-                aria-label="GitHub"
-              >
-                <Github className="w-5 h-5 text-gray-400 hover:text-white transition-colors" />
-              </a>
-              <a
-                href="https://linkedin.com/in/yourusername"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 glass rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5 text-gray-400 hover:text-white transition-colors" />
-              </a>
-              <a
-                href="https://twitter.com/yourusername"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 glass rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-5 h-5 text-gray-400 hover:text-white transition-colors" />
-              </a>
-              <a
-                href="mailto:your.email@example.com"
-                className="w-10 h-10 glass rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors"
-                aria-label="Email"
-              >
-                <Mail className="w-5 h-5 text-gray-400 hover:text-white transition-colors" />
-              </a>
-            </div>
           </div>
 
           {/* Product */}
@@ -119,7 +78,7 @@ export default function Footer() {
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row items-center justify-center">
             <p className="text-gray-400 text-sm">
-              © {currentYear} Trackit. All rights reserved.
+              © {currentYear} Trackit. Created by <Link href="https://github.com/dkay9.com" className="text-blue-400">Dkay</Link>
             </p>
           </div>
         </div>
