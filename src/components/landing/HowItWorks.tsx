@@ -98,7 +98,7 @@ export default function HowItWorks() {
         <div className="text-center mt-16">
           <a
             href="/signup"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-primary-dark text-white font-semibold rounded-lg transition-all shadow-lg shadow-primary/50 hover:shadow-primary/70 hover:scale-105"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-primary-dark text-white font-semibold rounded-lg transition-all hover:scale-105"
           >
             Start Tracking Now
             <ArrowRight className="w-5 h-5" />

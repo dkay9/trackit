@@ -65,11 +65,8 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-primary to-primary-dark rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg sm:text-xl">J</span>
-            </div>
             <span className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
-              JobTracker
+              Trackit.
             </span>
           </Link>
 
@@ -95,19 +92,6 @@ export default function Navbar() {
             >
               How It Works
             </a>
-
-            {/* Dark Mode Toggle */}
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 rounded-lg glass hover:bg-gray-200 dark:hover:bg-white/20 transition-colors"
-              aria-label="Toggle dark mode"
-            >
-              {darkMode ? (
-                <Sun className="w-5 h-5 text-yellow-300" />
-              ) : (
-                <Moon className="w-5 h-5 text-blue-600" />
-              )}
-            </button>
 
             <Link
               href="/login"

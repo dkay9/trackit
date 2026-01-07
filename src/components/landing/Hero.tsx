@@ -113,20 +113,7 @@ export default function Hero() {
           </div>
 
           {/* Social proof */}
-          <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-8 text-gray-400 text-sm">
-            <div className="flex items-center gap-2">
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary-dark border-2 border-dark-bg"></div>
-                ))}
-              </div>
-              <span>Join 500+ job seekers</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-yellow-400">★★★★★</span>
-              <span>4.9 out of 5</span>
-            </div>
-          </div>
+          
         </div>
       </div>
     </section>
