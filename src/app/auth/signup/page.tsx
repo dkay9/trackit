@@ -1,3 +1,4 @@
+// src/app/signup/page.tsx
 'use client';
 
 import { useState } from 'react';
@@ -40,7 +41,8 @@ export default function SignupPage() {
         password,
         options: {
           data: {
-            name,
+            full_name: name,
+            name: name,
           },
         },
       });
@@ -62,20 +64,23 @@ export default function SignupPage() {
             setError('Failed to login');
         }
     } finally {
-        setLoading(false);
-        }
-    };
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-white dark:bg-dark-bg px-4 py-12">
       {/* Dot pattern background */}
-      <div className="absolute inset-0 dot-pattern opacity-60"></div>
+      <div className="absolute inset-0 dot-pattern opacity-20"></div>
 
       <div className="relative z-10 w-full max-w-md">
         {/* Logo/Brand */}
         <Link href="/" className="flex items-center justify-center space-x-2 mb-8">
+          <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-lg flex items-center justify-center">
+            <span className="text-white font-bold text-2xl">J</span>
+          </div>
           <span className="text-2xl font-bold text-gray-900 dark:text-white">
-            Trackit
+            JobTracker
           </span>
         </Link>
 
@@ -219,7 +224,7 @@ export default function SignupPage() {
           <p className="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
             Already have an account?{' '}
             <Link
-              href="/auth/login"
+              href="/login"
               className="text-primary hover:text-primary-dark font-semibold transition-colors"
             >
               Sign in

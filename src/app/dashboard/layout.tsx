@@ -1,3 +1,4 @@
+// src/app/dashboard/layout.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -13,6 +14,8 @@ import {
   PanelLeftClose,
   PanelLeft
 } from 'lucide-react';
+
+import { getUserFirstName, getUserInitial } from '@/lib/utils/user';
 
 export default function DashboardLayout({
   children,
@@ -31,15 +34,8 @@ export default function DashboardLayout({
   ];
 
   // Get user's first name
-  const getFirstName = () => {
-    if (user?.user_metadata?.name) {
-      return user.user_metadata.name.split(' ')[0];
-    }
-    if (user?.email) {
-      return user.email.split('@')[0];
-    }
-    return 'User';
-  };
+  const firstName = getUserFirstName(user);
+  const userInitial = getUserInitial(user);
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-dark-bg">
@@ -64,8 +60,11 @@ export default function DashboardLayout({
           <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-white/10">
             {!sidebarCollapsed && (
               <Link href="/dashboard" className="flex items-center space-x-2 lg:flex hidden">
+                <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary-dark rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold">J</span>
+                </div>
                 <span className="text-lg font-bold text-gray-900 dark:text-white">
-                  Trackit
+                  JobTracker
                 </span>
               </Link>
             )}
@@ -135,12 +134,12 @@ export default function DashboardLayout({
               <div className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-dark-bg rounded-lg">
                 <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center flex-shrink-0">
                   <span className="text-white font-semibold text-sm">
-                    {getFirstName()[0].toUpperCase()}
+                    {userInitial}
                   </span>
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-gray-900 dark:text-white truncate">
-                    {getFirstName()}
+                    {firstName}
                   </p>
                   <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
                     {user?.email}
@@ -151,7 +150,7 @@ export default function DashboardLayout({
               <div className="flex justify-center">
                 <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center">
                   <span className="text-white font-semibold text-sm">
-                    {getFirstName()[0].toUpperCase()}
+                    {userInitial}
                   </span>
                 </div>
               </div>

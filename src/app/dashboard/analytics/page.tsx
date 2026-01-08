@@ -22,7 +22,7 @@ export default function AnalyticsPage() {
         <p className="text-gray-600 dark:text-gray-400">
           We&apos;ll add charts and insights here next.
         </p>
-      </div>
+      </div> 
     </div>
   );
 }
