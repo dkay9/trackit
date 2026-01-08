@@ -93,7 +93,7 @@ export default function Navbar() {
             </a>
 
             <Link
-              href="/login"
+              href="/auth/login"
               className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
               Sign In
