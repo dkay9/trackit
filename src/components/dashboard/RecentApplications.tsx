@@ -1,4 +1,3 @@
-// src/components/dashboard/RecentApplications.tsx
 import Link from 'next/link';
 import { Briefcase, Calendar, Plus, Clock, CheckCircle, XCircle, FileText } from 'lucide-react';
 
