@@ -99,7 +99,7 @@ export default function Navbar() {
               Sign In
             </Link>
             <Link
-              href="/signup"
+              href="/auth/signup"
               className="px-6 py-2.5 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg transition-colors"
             >
               Get Started
@@ -162,14 +162,14 @@ export default function Navbar() {
             </a>
             <hr className="border-gray-200 dark:border-white/10" />
             <Link
-              href="/login"
+              href="/auth/login"
               className="block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors py-2"
               onClick={() => setMobileMenuOpen(false)}
             >
               Sign In
             </Link>
             <Link
-              href="/signup"
+              href="/auth/signup"
               className="block w-full text-center px-6 py-2.5 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >

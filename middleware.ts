@@ -42,15 +42,15 @@ export async function middleware(request: NextRequest) {
       request.nextUrl.pathname.startsWith('/analytics'))
   ) {
     const url = request.nextUrl.clone();
-    url.pathname = '/login';
+    url.pathname = '/auth/login';
     return NextResponse.redirect(url);
   }
 
   // Redirect authenticated users away from auth pages
   if (
     user &&
-    (request.nextUrl.pathname === '/login' ||
-      request.nextUrl.pathname === '/signup')
+    (request.nextUrl.pathname === '/auth/login' ||
+      request.nextUrl.pathname === '/auth/signup')
   ) {
     const url = request.nextUrl.clone();
     url.pathname = '/dashboard';
