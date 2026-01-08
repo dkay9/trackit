@@ -1,3 +1,4 @@
+// src/app/dashboard/page.tsx
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -48,6 +49,9 @@ export default function DashboardPage() {
   useEffect(() => {
     if (user) {
       fetchApplications();
+    } else {
+      // If no user yet, just stop loading
+      setLoading(false);
     }
   }, [user]);
 
@@ -59,20 +63,28 @@ export default function DashboardPage() {
         .order('created_at', { ascending: false })
         .limit(5);
 
-      if (error) throw error;
+      if (error) {
+        console.error('Supabase error:', error);
+        // Don't throw - just set empty state
+        setApplications([]);
+        setLoading(false);
+        return;
+      }
 
       setApplications(data || []);
 
-      // Calculate stats
-      const total = data?.length || 0;
-      const applied = data?.filter((app) => app.status === 'applied').length || 0;
-      const interview = data?.filter((app) => app.status === 'interview').length || 0;
-      const offer = data?.filter((app) => app.status === 'offer').length || 0;
-      const rejected = data?.filter((app) => app.status === 'rejected').length || 0;
+      // Calculate stats - handle null/undefined data
+      const allData = data || [];
+      const total = allData.length;
+      const applied = allData.filter((app) => app.status === 'applied').length;
+      const interview = allData.filter((app) => app.status === 'interview').length;
+      const offer = allData.filter((app) => app.status === 'offer').length;
+      const rejected = allData.filter((app) => app.status === 'rejected').length;
 
       setStats({ total, applied, interview, offer, rejected });
     } catch (error) {
       console.error('Error fetching applications:', error);
+      setApplications([]);
     } finally {
       setLoading(false);
     }
