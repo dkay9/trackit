@@ -1,4 +1,3 @@
-// src/lib/utils/user.ts
 import type { User } from '@supabase/supabase-js';
 
 export function getUserFirstName(user: User | null): string {

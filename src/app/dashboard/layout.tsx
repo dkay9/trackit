@@ -1,7 +1,7 @@
 // src/app/dashboard/layout.tsx
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useAuth } from '@/hooks/useAuth';
@@ -72,11 +72,8 @@ export default function DashboardLayout({
             {/* Mobile: Show logo and close button */}
             <div className="flex items-center justify-between w-full lg:hidden">
               <Link href="/dashboard" className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary-dark rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold">J</span>
-                </div>
                 <span className="text-lg font-bold text-gray-900 dark:text-white">
-                  JobTracker
+                  Trackit
                 </span>
               </Link>
               <button

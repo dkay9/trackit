@@ -1,3 +1,4 @@
+// src/app/dashboard/page.tsx
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -14,6 +15,7 @@ import {
 } from 'lucide-react';
 import StatsCard from '@/components/dashboard/StatsCard';
 import RecentApplications from '@/components/dashboard/RecentApplications';
+import { getUserFirstName } from '@/lib/utils/user';
 
 interface Application {
   id: string;
@@ -103,7 +105,7 @@ export default function DashboardPage() {
             Dashboard
           </h1>
           <p className="text-gray-600 dark:text-gray-400 mt-1">
-            Welcome back, {user?.user_metadata?.name?.split(' ')[0] || user?.email?.split('@')[0]}!
+            Welcome back, {getUserFirstName(user)}!
           </p>
         </div>
         <Link
