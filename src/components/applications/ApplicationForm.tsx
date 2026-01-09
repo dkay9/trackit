@@ -49,10 +49,11 @@ export default function ApplicationForm({
     setLoading(true);
 
     try {
-      const { data: { user } } = await supabase.auth.getUser();
+      // Get current user
+      const { data: { user }, error: userError } = await supabase.auth.getUser();
       
-      if (!user) {
-        throw new Error('Not authenticated');
+      if (userError || !user) {
+        throw new Error('Not authenticated. Please log in again.');
       }
 
       // Prepare data
@@ -67,19 +68,19 @@ export default function ApplicationForm({
 
       if (initialData?.id) {
         // Update existing
-        const { error } = await supabase
+        const { error: updateError } = await supabase
           .from('applications')
           .update(applicationData)
           .eq('id', initialData.id);
 
-        if (error) throw error;
+        if (updateError) throw updateError;
       } else {
         // Create new
-        const { error } = await supabase
+        const { error: insertError } = await supabase
           .from('applications')
           .insert([applicationData]);
 
-        if (error) throw error;
+        if (insertError) throw insertError;
       }
 
       // Success
@@ -97,10 +98,10 @@ export default function ApplicationForm({
         } else {
             setError('Failed to save application');
         }
-    } finally {
-      setLoading(false);
-    }
-  };
+        } finally {
+            setLoading(false);
+        }
+    };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>

@@ -60,11 +60,8 @@ export default function DashboardLayout({
           <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-white/10">
             {!sidebarCollapsed && (
               <Link href="/dashboard" className="flex items-center space-x-2 lg:flex hidden">
-                <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary-dark rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold">J</span>
-                </div>
                 <span className="text-lg font-bold text-gray-900 dark:text-white">
-                  JobTracker
+                  Trackit
                 </span>
               </Link>
             )}
