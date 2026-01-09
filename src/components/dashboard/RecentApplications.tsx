@@ -46,8 +46,8 @@ export default function RecentApplications({ applications }: RecentApplicationsP
   };
 
   return (
-    <div className="bg-white dark:bg-dark-lighter border border-gray-200 dark:border-white/10 rounded-xl">
-      <div className="p-6 border-b border-gray-200 dark:border-white/10">
+    <div className="bg-white border border-gray-200 rounded-xl">
+      <div className="p-6 border-b border-gray-200">
         <div className="flex items-center justify-between">
           <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
             Recent Applications
@@ -64,10 +64,10 @@ export default function RecentApplications({ applications }: RecentApplicationsP
       {applications.length === 0 ? (
         <div className="p-12 text-center">
           <Briefcase className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-          <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
+          <h3 className="text-lg font-medium text-gray-900 mb-2">
             No applications yet
           </h3>
-          <p className="text-gray-600 dark:text-gray-400 mb-6">
+          <p className="text-gray-600 mb-6">
             Start tracking your job applications by adding your first one.
           </p>
           <Link
@@ -79,21 +79,21 @@ export default function RecentApplications({ applications }: RecentApplicationsP
           </Link>
         </div>
       ) : (
-        <div className="divide-y divide-gray-200 dark:divide-white/10">
+        <div className="divide-y divide-gray-200">
           {applications.map((app) => (
             <div
               key={app.id}
-              className="p-6 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
+              className="p-6 hover:bg-gray-50 transition-colors"
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-1">
+                  <h3 className="text-base font-semibold text-gray-900 mb-1">
                     {app.position}
                   </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                  <p className="text-sm text-gray-600 mb-3">
                     {app.company}
                   </p>
-                  <div className="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-500">
+                  <div className="flex items-center gap-4 text-xs text-gray-500">
                     <span className="flex items-center gap-1">
                       <Calendar className="w-3 h-3" />
                       Applied {new Date(app.applied_date).toLocaleDateString()}

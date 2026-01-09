@@ -75,11 +75,8 @@ export default function SignupPage() {
       <div className="relative z-10 w-full max-w-md">
         {/* Logo/Brand */}
         <Link href="/" className="flex items-center justify-center space-x-2 mb-8">
-          <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-2xl">J</span>
-          </div>
           <span className="text-2xl font-bold text-gray-900 dark:text-white">
-            JobTracker
+            Trackit
           </span>
         </Link>
 
@@ -223,7 +220,7 @@ export default function SignupPage() {
           <p className="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
             Already have an account?{' '}
             <Link
-              href="/login"
+              href="/auth/login"
               className="text-primary hover:text-primary-dark font-semibold transition-colors"
             >
               Sign in
