@@ -38,13 +38,13 @@ export default function ApplicationCard({
   const salary = formatSalary(application.salary_min, application.salary_max);
 
   return (
-    <div className="bg-white dark:bg-dark-lighter border border-gray-200 dark:border-white/10 rounded-xl p-6 hover:border-primary/50 dark:hover:border-primary/50 transition-colors">
+    <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-primary/50 transition-colors">
       <div className="flex items-start justify-between gap-4 mb-4">
         <div className="flex-1 min-w-0">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1 truncate">
             {application.position}
           </h3>
-          <p className="text-gray-600 dark:text-gray-400 mb-3">
+          <p className="text-gray-600  mb-3">
             {application.company}
           </p>
           <StatusBadge status={application.status} />
@@ -54,9 +54,9 @@ export default function ApplicationCard({
         <div className="relative">
           <button
             onClick={() => setShowMenu(!showMenu)}
-            className="p-2 hover:bg-gray-100 dark:hover:bg-white/5 rounded-lg transition-colors"
+            className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
           >
-            <MoreVertical className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+            <MoreVertical className="w-5 h-5 text-gray-600" />
           </button>
 
           {showMenu && (
@@ -65,13 +65,13 @@ export default function ApplicationCard({
                 className="fixed inset-0 z-10"
                 onClick={() => setShowMenu(false)}
               />
-              <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-dark-lighter border border-gray-200 dark:border-white/10 rounded-lg shadow-lg z-20">
+              <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-20">
                 <button
                   onClick={() => {
                     setShowMenu(false);
                     onEdit(application.id);
                   }}
-                  className="w-full flex items-center gap-3 px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors rounded-t-lg"
+                  className="w-full flex items-center gap-3 px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 transition-colors rounded-t-lg"
                 >
                   <Edit2 className="w-4 h-4" />
                   Edit
@@ -81,7 +81,7 @@ export default function ApplicationCard({
                     setShowMenu(false);
                     onDelete(application.id);
                   }}
-                  className="w-full flex items-center gap-3 px-4 py-3 text-sm text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 transition-colors rounded-b-lg"
+                  className="w-full flex items-center gap-3 px-4 py-3 text-sm text-red-600 hover:bg-red-50 transition-colors rounded-b-lg"
                 >
                   <Trash2 className="w-4 h-4" />
                   Delete
@@ -93,7 +93,7 @@ export default function ApplicationCard({
       </div>
 
       {/* Meta Information */}
-      <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+      <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
         <span className="flex items-center gap-1.5">
           <Calendar className="w-4 h-4" />
           Applied {new Date(application.applied_date).toLocaleDateString()}
