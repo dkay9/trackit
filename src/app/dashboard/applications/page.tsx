@@ -1,4 +1,3 @@
-// src/app/dashboard/applications/page.tsx
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -45,10 +44,18 @@ export default function ApplicationsPage() {
         .select('*')
         .order('created_at', { ascending: false });
 
-      if (error) throw error;
+      if (error) {
+        console.error('Supabase error details:', error);
+        // Don't crash, just show empty state
+        setApplications([]);
+        setLoading(false);
+        return;
+      }
+
       setApplications(data || []);
     } catch (error) {
       console.error('Error fetching applications:', error);
+      setApplications([]);
     } finally {
       setLoading(false);
     }

@@ -1,4 +1,3 @@
-// src/components/applications/ApplicationCard.tsx
 import { useState } from 'react';
 import { Calendar, DollarSign, ExternalLink, Trash2, Edit2, MoreVertical } from 'lucide-react';
 import StatusBadge from './StatusBadge';

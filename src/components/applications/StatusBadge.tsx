@@ -1,4 +1,3 @@
-// src/components/applications/StatusBadge.tsx
 import { Clock, Calendar, CheckCircle, XCircle } from 'lucide-react';
 
 interface StatusBadgeProps {
