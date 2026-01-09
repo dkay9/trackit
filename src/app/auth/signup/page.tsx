@@ -1,3 +1,4 @@
+// src/app/signup/page.tsx
 'use client';
 
 import { useState } from 'react';
@@ -34,6 +35,9 @@ export default function SignupPage() {
       return;
     }
 
+    // Debug log
+    console.log('Signing up with name:', name);
+
     try {
       const { data, error } = await supabase.auth.signUp({
         email,
@@ -47,6 +51,9 @@ export default function SignupPage() {
       });
 
       if (error) throw error;
+
+      // Debug log
+      console.log('Signup successful, user metadata:', data.user?.user_metadata);
 
       if (data.user) {
         setSuccess(true);
@@ -75,8 +82,11 @@ export default function SignupPage() {
       <div className="relative z-10 w-full max-w-md">
         {/* Logo/Brand */}
         <Link href="/" className="flex items-center justify-center space-x-2 mb-8">
+          <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-lg flex items-center justify-center">
+            <span className="text-white font-bold text-2xl">J</span>
+          </div>
           <span className="text-2xl font-bold text-gray-900 dark:text-white">
-            Trackit
+            JobTracker
           </span>
         </Link>
 
@@ -220,7 +230,7 @@ export default function SignupPage() {
           <p className="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
             Already have an account?{' '}
             <Link
-              href="/auth/login"
+              href="/login"
               className="text-primary hover:text-primary-dark font-semibold transition-colors"
             >
               Sign in

@@ -1,3 +1,4 @@
+// src/components/applications/StatusBadge.tsx
 import { Clock, Calendar, CheckCircle, XCircle } from 'lucide-react';
 
 interface StatusBadgeProps {
@@ -10,31 +11,31 @@ export default function StatusBadge({ status, size = 'md' }: StatusBadgeProps) {
     switch (status) {
       case 'applied':
         return {
-          color: 'bg-blue-100 dark:bg-blue-500/20 text-blue-700 dark:text-blue-400',
+          color: 'bg-blue-100 text-blue-700',
           icon: Clock,
           label: 'Applied',
         };
       case 'interview':
         return {
-          color: 'bg-purple-100 dark:bg-purple-500/20 text-purple-700 dark:text-purple-400',
+          color: 'bg-purple-100 text-purple-700',
           icon: Calendar,
           label: 'Interview',
         };
       case 'offer':
         return {
-          color: 'bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-400',
+          color: 'bg-green-100 text-green-700',
           icon: CheckCircle,
           label: 'Offer',
         };
       case 'rejected':
         return {
-          color: 'bg-red-100 dark:bg-red-500/20 text-red-700 dark:text-red-400',
+          color: 'bg-red-100 text-red-700',
           icon: XCircle,
           label: 'Rejected',
         };
       default:
         return {
-          color: 'bg-gray-100 dark:bg-gray-500/20 text-gray-700 dark:text-gray-400',
+          color: 'bg-gray-100 text-gray-700',
           icon: Clock,
           label: status,
         };

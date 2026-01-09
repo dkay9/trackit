@@ -1,25 +1,41 @@
+// src/lib/utils/user.ts
 import type { User } from '@supabase/supabase-js';
 
 export function getUserFirstName(user: User | null): string {
-  if (!user) return 'User';
+  console.log('=== getUserFirstName Debug ===');
+  console.log('User object:', user);
+  console.log('User metadata:', user?.user_metadata);
+  console.log('Email:', user?.email);
+  
+  if (!user) {
+    console.log('No user, returning "User"');
+    return 'User';
+  }
 
   // Try full_name first (our new field)
   if (user.user_metadata?.full_name) {
     const name = user.user_metadata.full_name.trim();
-    return name.split(' ')[0];
+    const firstName = name.split(' ')[0];
+    console.log('✅ Using full_name:', firstName);
+    return firstName;
   }
 
   // Try name field (fallback)
   if (user.user_metadata?.name) {
     const name = user.user_metadata.name.trim();
-    return name.split(' ')[0];
+    const firstName = name.split(' ')[0];
+    console.log('✅ Using name:', firstName);
+    return firstName;
   }
 
   // Try email
   if (user.email) {
-    return user.email.split('@')[0];
+    const emailName = user.email.split('@')[0];
+    console.log('⚠️ Using email fallback:', emailName);
+    return emailName;
   }
 
+  console.log('❌ No name found, returning "User"');
   return 'User';
 }
 

@@ -182,7 +182,7 @@ export default function DashboardLayout({
               <Menu className="w-6 h-6 text-gray-600" />
             </button>
             <span className="text-lg font-bold text-gray-900">
-              JobTracker
+              Trackit
             </span>
             <div className="w-10" /> {/* Spacer */}
           </div>

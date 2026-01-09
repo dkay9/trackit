@@ -115,16 +115,16 @@ export default function ApplicationForm({
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       {error && (
-        <div className="p-4 bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/20 rounded-lg flex items-start gap-3">
-          <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
-          <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
+        <div className="p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
+          <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+          <p className="text-sm text-red-600">{error}</p>
         </div>
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Company */}
         <div>
-          <label htmlFor="company" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
             Company Name *
           </label>
           <input
@@ -134,14 +134,14 @@ export default function ApplicationForm({
             value={formData.company}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2.5 bg-gray-50 dark:bg-dark-lighter border border-gray-300 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 dark:text-white"
+            className="w-full px-4 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900"
             placeholder="e.g., Google"
           />
         </div>
 
         {/* Position */}
         <div>
-          <label htmlFor="position" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label htmlFor="position" className="block text-sm font-medium text-gray-700 mb-2">
             Position *
           </label>
           <input
@@ -151,14 +151,14 @@ export default function ApplicationForm({
             value={formData.position}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2.5 bg-gray-50 dark:bg-dark-lighter border border-gray-300 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 dark:text-white"
+            className="w-full px-4 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900"
             placeholder="e.g., Frontend Developer"
           />
         </div>
 
         {/* Status */}
         <div>
-          <label htmlFor="status" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label htmlFor="status" className="block text-sm font-medium text-gray-700 mb-2">
             Status *
           </label>
           <select
@@ -167,7 +167,7 @@ export default function ApplicationForm({
             value={formData.status}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2.5 bg-gray-50 dark:bg-dark-lighter border border-gray-300 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 dark:text-white"
+            className="w-full px-4 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900"
           >
             <option value="applied">Applied</option>
             <option value="interview">Interview</option>
@@ -178,7 +178,7 @@ export default function ApplicationForm({
 
         {/* Applied Date */}
         <div>
-          <label htmlFor="applied_date" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label htmlFor="applied_date" className="block text-sm font-medium text-gray-700 mb-2">
             Applied Date *
           </label>
           <input
@@ -188,13 +188,13 @@ export default function ApplicationForm({
             value={formData.applied_date}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2.5 bg-gray-50 dark:bg-dark-lighter border border-gray-300 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 dark:text-white"
+            className="w-full px-4 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900"
           />
         </div>
 
         {/* Salary Min */}
         <div>
-          <label htmlFor="salary_min" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label htmlFor="salary_min" className="block text-sm font-medium text-gray-700 mb-2">
             Min Salary (Optional)
           </label>
           <input
@@ -203,14 +203,14 @@ export default function ApplicationForm({
             name="salary_min"
             value={formData.salary_min || ''}
             onChange={handleChange}
-            className="w-full px-4 py-2.5 bg-gray-50 dark:bg-dark-lighter border border-gray-300 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 dark:text-white"
+            className="w-full px-4 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900"
             placeholder="e.g., 80000"
           />
         </div>
 
         {/* Salary Max */}
         <div>
-          <label htmlFor="salary_max" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label htmlFor="salary_max" className="block text-sm font-medium text-gray-700 mb-2">
             Max Salary (Optional)
           </label>
           <input
@@ -219,7 +219,7 @@ export default function ApplicationForm({
             name="salary_max"
             value={formData.salary_max || ''}
             onChange={handleChange}
-            className="w-full px-4 py-2.5 bg-gray-50 dark:bg-dark-lighter border border-gray-300 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 dark:text-white"
+            className="w-full px-4 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900"
             placeholder="e.g., 120000"
           />
         </div>
@@ -227,7 +227,7 @@ export default function ApplicationForm({
 
       {/* Job URL */}
       <div>
-        <label htmlFor="job_url" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+        <label htmlFor="job_url" className="block text-sm font-medium text-gray-700 mb-2">
           Job Posting URL (Optional)
         </label>
         <input
@@ -236,14 +236,14 @@ export default function ApplicationForm({
           name="job_url"
           value={formData.job_url}
           onChange={handleChange}
-          className="w-full px-4 py-2.5 bg-gray-50 dark:bg-dark-lighter border border-gray-300 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 dark:text-white"
+          className="w-full px-4 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900"
           placeholder="https://..."
         />
       </div>
 
       {/* Notes */}
       <div>
-        <label htmlFor="notes" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+        <label htmlFor="notes" className="block text-sm font-medium text-gray-700 mb-2">
           Notes (Optional)
         </label>
         <textarea
@@ -252,7 +252,7 @@ export default function ApplicationForm({
           value={formData.notes}
           onChange={handleChange}
           rows={4}
-          className="w-full px-4 py-2.5 bg-gray-50 dark:bg-dark-lighter border border-gray-300 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 dark:text-white resize-none"
+          className="w-full px-4 py-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 resize-none"
           placeholder="Add any additional notes about this application..."
         />
       </div>
@@ -263,7 +263,7 @@ export default function ApplicationForm({
           <button
             type="button"
             onClick={onCancel}
-            className="px-6 py-2.5 border-2 border-gray-300 dark:border-white/10 text-gray-700 dark:text-gray-300 font-semibold rounded-lg hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
+            className="px-6 py-2.5 border-2 border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors"
           >
             Cancel
           </button>
