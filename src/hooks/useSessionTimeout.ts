@@ -9,6 +9,12 @@ export function useSessionTimeout(timeoutMinutes: number = 60) {
   const router = useRouter();
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   
+  const logout = async () => {
+    console.log('Session timeout - logging out');
+    await supabase.auth.signOut();
+    router.push('/auth/login?timeout=true');
+  };
+  
   const resetTimeout = () => {
     // Clear existing timeout
     if (timeoutRef.current) {
@@ -16,11 +22,7 @@ export function useSessionTimeout(timeoutMinutes: number = 60) {
     }
     
     // Set new timeout
-    timeoutRef.current = setTimeout(async () => {
-      console.log('Session timeout - logging out');
-      await supabase.auth.signOut();
-      router.push('/auth/login?timeout=true');
-    }, timeoutMinutes * 60 * 1000);
+    timeoutRef.current = setTimeout(logout, timeoutMinutes * 60 * 1000);
   };
   
   useEffect(() => {

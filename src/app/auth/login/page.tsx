@@ -1,10 +1,11 @@
+// src/app/login/page.tsx
 'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase/client';
-import { Mail, Lock, AlertCircle, Loader2 } from 'lucide-react';
+import { Mail, Lock, AlertCircle, Loader2, Clock } from 'lucide-react';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -31,12 +32,12 @@ export default function LoginPage() {
         router.refresh();
       }
     } catch (err: unknown) {
-    if (err instanceof Error) {
-        setError(err.message);
-    } else {
-        setError('Failed to login');
-    }
-    }finally {
+        if (err instanceof Error) {
+            setError(err.message);
+        } else {
+            setError('Failed to login');
+        }
+    } finally {
       setLoading(false);
     }
   };
@@ -44,13 +45,16 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-white dark:bg-dark-bg px-4 py-12">
       {/* Dot pattern background */}
-      <div className="absolute inset-0 dot-pattern opacity-60"></div>
+      <div className="absolute inset-0 dot-pattern opacity-20"></div>
 
       <div className="relative z-10 w-full max-w-md">
         {/* Logo/Brand */}
         <Link href="/" className="flex items-center justify-center space-x-2 mb-8">
+          <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-lg flex items-center justify-center">
+            <span className="text-white font-bold text-2xl">J</span>
+          </div>
           <span className="text-2xl font-bold text-gray-900 dark:text-white">
-            Trackit
+            JobTracker
           </span>
         </Link>
 
@@ -62,6 +66,19 @@ export default function LoginPage() {
           <p className="text-gray-600 dark:text-gray-400 mb-6">
             Sign in to continue to your dashboard
           </p>
+
+          {/* Timeout Message */}
+          {showTimeoutMessage && (
+            <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg flex items-start gap-3">
+              <Clock className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+              <div>
+                <p className="text-sm font-medium text-blue-900">Session Expired</p>
+                <p className="text-sm text-blue-700 mt-1">
+                  You&apos;ve been logged out due to inactivity. Please sign in again.
+                </p>
+              </div>
+            </div>
+          )}
 
           {/* Error Message */}
           {error && (
@@ -142,7 +159,7 @@ export default function LoginPage() {
           <p className="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
             Don&apos;t have an account?{' '}
             <Link
-              href="/auth/signup"
+              href="/signup"
               className="text-primary hover:text-primary-dark font-semibold transition-colors"
             >
               Sign up

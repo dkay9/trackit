@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useAuth } from '@/hooks/useAuth';
+import { useSessionTimeout } from '@/hooks/useSessionTimeout';
 import { 
   LayoutDashboard, 
   FileText, 
@@ -35,6 +36,8 @@ export default function DashboardLayout({
   // Get user's first name
   const firstName = getUserFirstName(user);
   const userInitial = getUserInitial(user);
+  // Session timeout hook
+  useSessionTimeout();
 
   return (
     <div className="min-h-screen bg-gray-50">
