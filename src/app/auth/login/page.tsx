@@ -1,7 +1,7 @@
-// src/app/login/page.tsx
+// src/app/auth/login/page.tsx
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase/client';
@@ -13,6 +13,16 @@ export default function LoginPage() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showTimeoutMessage, setShowTimeoutMessage] = useState(false);
+
+  // Check for timeout parameter on mount
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('timeout') === 'true') {
+      setShowTimeoutMessage(true);
+      setTimeout(() => setShowTimeoutMessage(false), 5000);
+    }
+  }, []);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,31 +53,27 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white dark:bg-dark-bg px-4 py-12">
-      {/* Dot pattern background */}
+    <div className="min-h-screen flex items-center justify-center bg-white px-4 py-12">
       <div className="absolute inset-0 dot-pattern opacity-20"></div>
 
       <div className="relative z-10 w-full max-w-md">
-        {/* Logo/Brand */}
         <Link href="/" className="flex items-center justify-center space-x-2 mb-8">
           <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-lg flex items-center justify-center">
             <span className="text-white font-bold text-2xl">J</span>
           </div>
-          <span className="text-2xl font-bold text-gray-900 dark:text-white">
+          <span className="text-2xl font-bold text-gray-900">
             JobTracker
           </span>
         </Link>
 
-        {/* Login Card */}
-        <div className="glass-dark dark:glass-dark bg-white border border-gray-200 dark:border-white/20 rounded-2xl p-8 shadow-xl">
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+        <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-xl">
+          <h1 className="text-2xl font-bold text-gray-900 mb-2">
             Welcome back
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 mb-6">
+          <p className="text-gray-600 mb-6">
             Sign in to continue to your dashboard
           </p>
 
-          {/* Timeout Message */}
           {showTimeoutMessage && (
             <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg flex items-start gap-3">
               <Clock className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
@@ -80,19 +86,16 @@ export default function LoginPage() {
             </div>
           )}
 
-          {/* Error Message */}
           {error && (
-            <div className="mb-6 p-4 bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/20 rounded-lg flex items-start gap-3">
-              <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
-              <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
+              <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+              <p className="text-sm text-red-600">{error}</p>
             </div>
           )}
 
-          {/* Login Form */}
           <form onSubmit={handleLogin} className="space-y-4">
-            {/* Email Field */}
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                 Email
               </label>
               <div className="relative">
@@ -104,14 +107,13 @@ export default function LoginPage() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
                   required
-                  className="w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-dark-lighter border border-gray-300 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-500"
+                  className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 placeholder-gray-500"
                 />
               </div>
             </div>
 
-            {/* Password Field */}
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
                 Password
               </label>
               <div className="relative">
@@ -123,12 +125,11 @@ export default function LoginPage() {
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
                   required
-                  className="w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-dark-lighter border border-gray-300 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-500"
+                  className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 placeholder-gray-500"
                 />
               </div>
             </div>
 
-            {/* Forgot Password Link */}
             <div className="flex justify-end">
               <Link
                 href="/forgot-password"
@@ -138,7 +139,6 @@ export default function LoginPage() {
               </Link>
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
               disabled={loading}
@@ -155,11 +155,10 @@ export default function LoginPage() {
             </button>
           </form>
 
-          {/* Sign Up Link */}
-          <p className="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
+          <p className="mt-6 text-center text-sm text-gray-600">
             Don&apos;t have an account?{' '}
             <Link
-              href="/signup"
+              href="/auth/signup"
               className="text-primary hover:text-primary-dark font-semibold transition-colors"
             >
               Sign up
@@ -167,11 +166,10 @@ export default function LoginPage() {
           </p>
         </div>
 
-        {/* Back to Home Link */}
         <div className="mt-6 text-center">
           <Link
             href="/"
-            className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+            className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
           >
             ← Back to home
           </Link>
