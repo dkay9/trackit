@@ -75,24 +75,21 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white dark:bg-dark-bg px-4 py-12">
+    <div className="min-h-screen flex items-center justify-center bg-dark-bg px-4 py-12">
       {/* Dot pattern background */}
-      <div className="absolute inset-0 dot-pattern opacity-20"></div>
+      <div className="absolute inset-0 dot-pattern opacity-60"></div>
 
       <div className="relative z-10 w-full max-w-md">
         {/* Logo/Brand */}
         <Link href="/" className="flex items-center justify-center space-x-2 mb-8">
-          <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-2xl">J</span>
-          </div>
-          <span className="text-2xl font-bold text-gray-900 dark:text-white">
-            JobTracker
+          <span className="text-2xl font-bold text-white">
+            Trackit
           </span>
         </Link>
 
         {/* Signup Card */}
-        <div className="glass-dark dark:glass-dark bg-white border border-gray-200 dark:border-white/20 rounded-2xl p-8 shadow-xl">
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+        <div className="glass-dark dark:glass-dark bg-dark-bg border border-white/20 rounded-2xl p-8 shadow-xl">
+          <h1 className="text-2xl font-bold text-gray-400 dark:text-white mb-2">
             Create your account
           </h1>
           <p className="text-gray-600 dark:text-gray-400 mb-6">
@@ -138,14 +135,14 @@ export default function SignupPage() {
                   onChange={(e) => setName(e.target.value)}
                   placeholder="John Doe"
                   required
-                  className="w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-dark-lighter border border-gray-300 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-500"
+                  className="w-full pl-10 pr-4 py-3 bg-dark-lighter border border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-white placeholder-gray-500"
                 />
               </div>
             </div>
 
             {/* Email Field */}
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                 Email
               </label>
               <div className="relative">
@@ -157,14 +154,14 @@ export default function SignupPage() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
                   required
-                  className="w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-dark-lighter border border-gray-300 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-500"
+                  className="w-full pl-10 pr-4 py-3 bg-dark-lighter border border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-white placeholder-gray-500"
                 />
               </div>
             </div>
 
             {/* Password Field */}
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-2">
                 Password
               </label>
               <div className="relative">
@@ -177,17 +174,17 @@ export default function SignupPage() {
                   placeholder="••••••••"
                   required
                   minLength={6}
-                  className="w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-dark-lighter border border-gray-300 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-500"
+                  className="w-full pl-10 pr-4 py-3 bg-dark-lighter border border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-white placeholder-gray-500"
                 />
               </div>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+              <p className="text-xs text-gray-400 mt-1">
                 Must be at least 6 characters
               </p>
             </div>
 
             {/* Confirm Password Field */}
             <div>
-              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-300 mb-2">
                 Confirm Password
               </label>
               <div className="relative">
@@ -199,7 +196,7 @@ export default function SignupPage() {
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   placeholder="••••••••"
                   required
-                  className="w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-dark-lighter border border-gray-300 dark:border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-500"
+                  className="w-full pl-10 pr-4 py-3 bg-dark-lighter border border-white/10 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-white placeholder-gray-500"
                 />
               </div>
             </div>
@@ -227,7 +224,7 @@ export default function SignupPage() {
           </form>
 
           {/* Login Link */}
-          <p className="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
+          <p className="mt-6 text-center text-sm text-gray-400">
             Already have an account?{' '}
             <Link
               href="/login"
@@ -242,7 +239,7 @@ export default function SignupPage() {
         <div className="mt-6 text-center">
           <Link
             href="/"
-            className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+            className="text-sm text-gray-400 hover:text-white transition-colors"
           >
             ← Back to home
           </Link>
