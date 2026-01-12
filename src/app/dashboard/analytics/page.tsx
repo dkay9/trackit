@@ -5,8 +5,8 @@ import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase/client';
 import { Loader2, Download } from 'lucide-react';
 import AnalyticsStats from '@/components/analytics/AnalyticsStats';
-// import StatusBreakdownChart from '@/components/analytics/StatusBreakdownChart';
-// import ApplicationsTimelineChart from '@/components/analytics/ApplicationsTimelineChart';
+import StatusBreakdownChart from '@/components/analytics/StatusBreakdownChart';
+import ApplicationsTimelineChart from '@/components/analytics/ApplicationsTimelineChart';
 import TopCompanies from '@/components/analytics/TopCompanies';
 
 interface Application {

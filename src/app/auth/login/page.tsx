@@ -58,11 +58,8 @@ export default function LoginPage() {
 
       <div className="relative z-10 w-full max-w-md">
         <Link href="/" className="flex items-center justify-center space-x-2 mb-8">
-          <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-2xl">J</span>
-          </div>
           <span className="text-2xl font-bold text-gray-900">
-            JobTracker
+            Trackit
           </span>
         </Link>
 
