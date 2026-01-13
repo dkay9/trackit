@@ -54,7 +54,7 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-dark-bg px-4 py-12">
-      <div className="absolute inset-0 dot-pattern opacity-20"></div>
+      <div className="absolute inset-0 dot-pattern opacity-60"></div>
 
       <div className="relative z-10 w-full max-w-md">
         <Link href="/" className="flex items-center justify-center space-x-2 mb-8">
