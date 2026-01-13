@@ -4,6 +4,8 @@
 <h2>Project Overview</h2>
 The aim of this web app is to make it easy for developers or users in general to track their job applications as its been a challenge for myself.
 
+<img width="1880" height="888" alt="trackit" src="https://github.com/user-attachments/assets/3087e1df-46d6-4798-8b8f-fdaf0f5cf9e6" />
+
 <h2>Technical Architecture</h1>
 <ul>
   <li>Next.js + Typescript</li>
