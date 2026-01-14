@@ -1,6 +1,5 @@
-// src/components/dashboard/RecentApplications.tsx
 import Link from 'next/link';
-import { Plus, Calendar, MoreVertical, Eye, Edit2, Trash2 } from 'lucide-react';
+import { Plus, Calendar, Eye, Edit2, Trash2 } from 'lucide-react';
 import StatusBadge from '../applications/StatusBadge';
 
 interface Application {
