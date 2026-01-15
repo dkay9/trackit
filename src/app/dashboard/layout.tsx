@@ -61,7 +61,7 @@ export default function DashboardLayout({
           {/* Logo & Collapse Button */}
           <div className="flex items-center justify-between p-4 border-b border-gray-200">
             {!sidebarCollapsed && (
-              <Link href="/dashboard" className="flex items-center space-x-2 lg:flex hidden">
+              <Link href="/dashboard" className="hidden items-center space-x-2 lg:flex">
                 <span className="text-lg font-bold text-gray-900">
                   Trackit
                 </span>

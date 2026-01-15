@@ -29,8 +29,6 @@ const statusOptions = [
   { value: 'interview', label: 'Interview' },
   { value: 'offer', label: 'Offer' },
   { value: 'rejected', label: 'Rejected' },
-  { value: 'accepted', label: 'Accepted' },
-  { value: 'withdrawn', label: 'Withdrawn' },
 ];
 
 export default function EditApplicationModal({ 
