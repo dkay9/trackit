@@ -1,4 +1,3 @@
-// src/components/dashboard/EditApplicationModal.tsx
 'use client';
 import { useState } from 'react';
 import { X } from 'lucide-react';
@@ -73,8 +72,6 @@ export default function EditApplicationModal({
         throw new Error('You must be logged in to update applications');
       }
 
-      console.log('Current user:', currentUser.id);
-
       // Prepare data for update
       const updateData: {
         company: string;
@@ -102,20 +99,11 @@ export default function EditApplicationModal({
         updateData.salary_max = Number(formData.salary_max);
       }
 
-      console.log('Updating application with data:', updateData);
-      console.log('Application ID:', application.id);
-
       const result = await supabase
         .from('applications')
         .update(updateData)
         .eq('id', application.id)
         .select();
-
-      console.log('Full Supabase result:', result);
-      console.log('Supabase response - data:', result.data);
-      console.log('Supabase response - error:', result.error);
-      console.log('Supabase response - status:', result.status);
-      console.log('Supabase response - statusText:', result.statusText);
 
       if (result.error) {
         console.error('Supabase update error details:', {
