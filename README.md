@@ -10,6 +10,8 @@ The aim of this web app is to make it easy for developers or users in general to
 
 <img width="1919" height="966" alt="application" src="https://github.com/user-attachments/assets/669be0e9-a470-4982-969f-521fbd87e8ce" />
 
+<img width="1919" height="967" alt="analytics" src="https://github.com/user-attachments/assets/c6f35c2b-7200-4139-a39e-e21e5ea663ac" />
+
 <h2>Technical Architecture</h1>
 <ul>
   <li>Next.js + Typescript</li>
