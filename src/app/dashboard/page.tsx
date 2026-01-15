@@ -35,7 +35,7 @@ interface Stats {
 }
 
 export default function DashboardPage() {
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const [applications, setApplications] = useState<Application[]>([]);
   const [stats, setStats] = useState<Stats>({
     total: 0,
@@ -47,18 +47,44 @@ export default function DashboardPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Wait for auth to load first
+    if (authLoading) {
+      console.log('Auth still loading...');
+      return;
+    }
+
     if (user) {
+      console.log('User authenticated, fetching applications...');
       fetchApplications();
     } else {
+      console.log('No user found after auth loaded');
       setLoading(false);
     }
-  }, [user]);
+  }, [user, authLoading]);
 
   const fetchApplications = async () => {
     try {
+      // Double-check user authentication
+      const { data: { user: currentUser }, error: authError } = await supabase.auth.getUser();
+      
+      if (authError) {
+        console.error('Auth error:', authError);
+        setLoading(false);
+        return;
+      }
+
+      if (!currentUser) {
+        console.error('No authenticated user found');
+        setLoading(false);
+        return;
+      }
+
+      console.log('Fetching applications for user:', currentUser.id);
+
       const { data, error } = await supabase
         .from('applications')
         .select('*')
+        .eq('user_id', currentUser.id)
         .order('created_at', { ascending: false })
         .limit(5);
 
@@ -88,10 +114,31 @@ export default function DashboardPage() {
     }
   };
 
-  if (loading) {
+  // Callback function to refresh applications after edit/delete
+  const handleApplicationsUpdate = () => {
+    fetchApplications();
+  };
+
+  // Show loading while auth is loading OR while fetching data
+  if (authLoading || loading) {
     return (
       <div className="flex items-center justify-center h-96">
         <Loader2 className="w-8 h-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  // If auth loaded but no user, redirect or show message
+  if (!user) {
+    return (
+      <div className="flex flex-col items-center justify-center h-96">
+        <p className="text-gray-600 mb-4">You need to be logged in to view this page.</p>
+        <Link 
+          href="/auth/login"
+          className="px-4 py-2 bg-primary hover:bg-primary-dark text-white font-semibold rounded-lg transition-colors"
+        >
+          Go to Login
+        </Link>
       </div>
     );
   }
@@ -162,7 +209,10 @@ export default function DashboardPage() {
       </div>
 
       {/* Recent Applications */}
-      <RecentApplications applications={applications} />
+      <RecentApplications 
+        applications={applications} 
+        onUpdate={handleApplicationsUpdate}
+      />
     </div>
   );
 }
