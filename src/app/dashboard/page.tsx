@@ -1,4 +1,3 @@
-// src/app/dashboard/page.tsx
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -78,8 +77,6 @@ export default function DashboardPage() {
         setLoading(false);
         return;
       }
-
-      console.log('Fetching applications for user:', currentUser.id);
 
       const { data, error } = await supabase
         .from('applications')

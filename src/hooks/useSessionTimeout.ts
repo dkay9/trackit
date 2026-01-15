@@ -1,4 +1,3 @@
-// src/hooks/useSessionTimeout.ts
 'use client';
 
 import { useEffect, useRef } from 'react';
