@@ -32,3 +32,13 @@ The aim of this web app is to make it easy for developers or users in general to
   <li>CSV export</li>
   <li>E2E tested with playwright</li>
 </ul>
+
+<h2>Test Coverage</h2>
+<ul>
+  <li>Authentication flows (signup, login, logout)</li>
+  <li>CRUD operations (create, read, update, delete applications)</li>
+  <li>Search and filter functionality</li>
+  <li>Analytics dashboard</li>
+  <li>Data export</li>
+  <li>Responsive design (mobile, tablet, desktop)</li>
+</ul>
