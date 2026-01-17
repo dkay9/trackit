@@ -61,55 +61,70 @@ export default function DashboardPage() {
     }
   }, [user, authLoading]);
 
-  const fetchApplications = async () => {
-    try {
-      // Double-check user authentication
-      const { data: { user: currentUser }, error: authError } = await supabase.auth.getUser();
-      
-      if (authError) {
-        console.error('Auth error:', authError);
-        setLoading(false);
-        return;
-      }
-
-      if (!currentUser) {
-        console.error('No authenticated user found');
-        setLoading(false);
-        return;
-      }
-
-      const { data, error } = await supabase
-        .from('applications')
-        .select('*')
-        .eq('user_id', currentUser.id)
-        .order('created_at', { ascending: false })
-        .limit(5);
-
-      if (error) {
-        console.error('Supabase error:', error);
-        setApplications([]);
-        setLoading(false);
-        return;
-      }
-
-      setApplications(data || []);
-
-      // Calculate stats
-      const allData = data || [];
-      const total = allData.length;
-      const applied = allData.filter((app) => app.status === 'applied').length;
-      const interview = allData.filter((app) => app.status === 'interview').length;
-      const offer = allData.filter((app) => app.status === 'offer').length;
-      const rejected = allData.filter((app) => app.status === 'rejected').length;
-
-      setStats({ total, applied, interview, offer, rejected });
-    } catch (error) {
-      console.error('Error fetching applications:', error);
-      setApplications([]);
-    } finally {
+const fetchApplications = async () => {
+  try {
+    // Double-check user authentication
+    const { data: { user: currentUser }, error: authError } = await supabase.auth.getUser();
+    
+    if (authError) {
+      console.error('Auth error:', authError);
       setLoading(false);
+      return;
     }
-  };
+
+    if (!currentUser) {
+      console.error('No authenticated user found');
+      setLoading(false);
+      return;
+    }
+
+    console.log('Fetching applications for user:', currentUser.id);
+
+    // Fetch recent 5 for display
+    const { data, error } = await supabase
+      .from('applications')
+      .select('*')
+      .eq('user_id', currentUser.id)
+      .order('created_at', { ascending: false })
+      .limit(5);
+
+    if (error) {
+      console.error('Supabase error:', error);
+      setApplications([]);
+      setLoading(false);
+      return;
+    }
+
+    setApplications(data || []);
+
+    // ========== THIS IS THE FIX ==========
+    // Fetch ALL applications for accurate stats
+    const { data: allApps, error: statsError } = await supabase
+      .from('applications')
+      .select('status')
+      .eq('user_id', currentUser.id);
+
+    if (statsError) {
+      console.error('Stats error:', statsError);
+    }
+
+    // Calculate stats from ALL applications
+    const allData = allApps || [];
+    const total = allData.length;
+    const applied = allData.filter((app) => app.status === 'applied').length;
+    const interview = allData.filter((app) => app.status === 'interview').length;
+    const offer = allData.filter((app) => app.status === 'offer').length;
+    const rejected = allData.filter((app) => app.status === 'rejected').length;
+
+    setStats({ total, applied, interview, offer, rejected });
+    // ========== END OF FIX ==========
+  } catch (error) {
+    console.error('Error fetching applications:', error);
+    setApplications([]);
+  } finally {
+    setLoading(false);
+  }
+};
 
   // Callback function to refresh applications after edit/delete
   const handleApplicationsUpdate = () => {

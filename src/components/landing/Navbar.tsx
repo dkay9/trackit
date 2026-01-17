@@ -18,7 +18,7 @@ export default function Navbar() {
       }
       return window.matchMedia('(prefers-color-scheme: dark)').matches;
     }
-    return true; // Default to dark mode for SSR
+    return true; 
   });
 
   // Handle scroll for navbar background
