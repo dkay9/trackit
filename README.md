@@ -29,5 +29,6 @@ The aim of this web app is to make it easy for developers or users in general to
   <li>Status Pipeline: Drag-and-drop board (Applied → Interview → Offer → Rejected)</li>
   <li>Analytics: Success rate, average response time, salary insights</li>
   <li>Filters: By status, date range, company, position type</li>
+  <li>CSV export</li>
   <li>E2E tested with playwright</li>
 </ul>
