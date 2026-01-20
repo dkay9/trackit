@@ -9,7 +9,6 @@ export function useSessionTimeout(timeoutMinutes: number = 60) {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   
   const logout = async () => {
-    console.log('Session timeout - logging out');
     await supabase.auth.signOut();
     router.push('/auth/login?timeout=true');
   };

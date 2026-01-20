@@ -13,11 +13,7 @@ export function useAuth() {
   useEffect(() => {
     // Get initial session
     supabase.auth.getSession().then(({ data: { session }, error }) => {
-      console.log('=== useAuth getSession ===');
-      console.log('Session:', session);
-      console.log('User:', session?.user);
-      console.log('Error:', error);
-      
+      console.log('Error:', error);     
       setUser(session?.user ?? null);
       setLoading(false);
     });
@@ -25,12 +21,7 @@ export function useAuth() {
     // Listen for auth changes
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((event, session) => {
-      console.log('=== useAuth onAuthStateChange ===');
-      console.log('Event:', event);
-      console.log('Session:', session);
-      console.log('User:', session?.user);
-      
+    } = supabase.auth.onAuthStateChange((event, session) => {  
       setUser(session?.user ?? null);
       setLoading(false);
     });
@@ -43,11 +34,6 @@ export function useAuth() {
     router.push('/auth/login');
     router.refresh();
   };
-
-  console.log('=== useAuth current state ===');
-  console.log('User:', user);
-  console.log('Loading:', loading);
-  console.log('IsAuthenticated:', !!user);
 
   return {
     user,
