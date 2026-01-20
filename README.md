@@ -41,4 +41,5 @@ The aim of this web app is to make it easy for developers or users in general to
   <li>Analytics dashboard</li>
   <li>Data export</li>
   <li>Responsive design (mobile, tablet, desktop)</li>
+  <li>Multi Browser support</li>
 </ul>
