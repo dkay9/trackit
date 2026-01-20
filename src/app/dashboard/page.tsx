@@ -48,15 +48,12 @@ export default function DashboardPage() {
   useEffect(() => {
     // Wait for auth to load first
     if (authLoading) {
-      console.log('Auth still loading...');
       return;
     }
 
     if (user) {
-      console.log('User authenticated, fetching applications...');
       fetchApplications();
     } else {
-      console.log('No user found after auth loaded');
       setLoading(false);
     }
   }, [user, authLoading]);
@@ -78,8 +75,6 @@ const fetchApplications = async () => {
       return;
     }
 
-    console.log('Fetching applications for user:', currentUser.id);
-
     // Fetch recent 5 for display
     const { data, error } = await supabase
       .from('applications')
@@ -97,7 +92,6 @@ const fetchApplications = async () => {
 
     setApplications(data || []);
 
-    // ========== THIS IS THE FIX ==========
     // Fetch ALL applications for accurate stats
     const { data: allApps, error: statsError } = await supabase
       .from('applications')
@@ -117,7 +111,6 @@ const fetchApplications = async () => {
     const rejected = allData.filter((app) => app.status === 'rejected').length;
 
     setStats({ total, applied, interview, offer, rejected });
-    // ========== END OF FIX ==========
   } catch (error) {
     console.error('Error fetching applications:', error);
     setApplications([]);

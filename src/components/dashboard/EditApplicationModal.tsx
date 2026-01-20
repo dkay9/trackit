@@ -116,8 +116,6 @@ export default function EditApplicationModal({
       if (!result.data || result.data.length === 0) {
         throw new Error('Update succeeded but no data returned. Check RLS policies.');
       }
-
-      console.log('Update successful!');
       onSuccess();
     } catch (err) {
       console.error('Error updating application:', err);
